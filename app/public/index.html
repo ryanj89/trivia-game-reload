@@ -46,7 +46,7 @@
             <button id="answer-btn" class="btn btn-primary btn-block">Submit Answer</button>
           </article>
           <!-- ./trivia-card -->
-
+          
           <article class="final-score">
             <h1>Final Score: <span class="final"></span></h1>
             <hr>
@@ -145,16 +145,9 @@
 
       <!-- High Scores -->
       <aside class="side-bar col-xs-6 col-sm-3 col-md-3 col-lg-3">
-        <section class="high-scores">
-          <h2>High Scores</h2>
-          <table class="scores table">
-            <tr>
-              <th>#</th>
-              <th>Name</th>
-              <th>Score</th>
-            </tr>
-          </table>
-        </section>
+        
+        <ui-view></ui-view>
+        
       </aside>
     </div>
   </div>
@@ -169,9 +162,12 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" charset="utf-8"></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.0-rc.1/angular-ui-router.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/angular-moment/1.0.1/angular-moment.min.js'></script>
   <script src="js/app/app.module.js" charset="utf-8"></script>
   <script src="js/app/app.config.js" charset="utf-8"></script>
-  <script src="js/component/example.component.js" charset="utf-8"></script>
+  <script src="js/leaderboards/leaderboard-list.component.js" charset="utf-8"></script>
+  <script src="js/services/leaderboard.service.js" charset="utf-8"></script>
   <script src="js/main.js" charset="utf-8"></script>
 </body>
 

@@ -1,0 +1,17 @@
+<section class="high-scores">
+  <h2>High Scores</h2>
+  <table class="scores table">
+    <thead>
+      <tr>
+        <th>Score</th>
+        <th>Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="score in $ctrl.scores">
+        <td>{{score.score}}</td>
+        <td>{{score.player_name}}</td>
+      </tr>
+    </tbody>
+  </table>
+</section>

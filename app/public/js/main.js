@@ -1,36 +1,36 @@
 $(document).ready(function () {
   // Get leaderboard scores
-  getLeaderboards();
-  function getLeaderboards() {
-    $.get('https://galvanize-leader-board.herokuapp.com/api/v1/leader-board/')
-      .then(getHighScores)
-      .then(sortHighScores)
-      .catch(getScoresFailed);
+  // getLeaderboards();
+  // function getLeaderboards() {
+  //   $.get('https://galvanize-leader-board.herokuapp.com/api/v1/leader-board/')
+  //     .then(getHighScores)
+  //     .then(sortHighScores)
+  //     .catch(getScoresFailed);
 
-    function getHighScores(results) {
-      var highScores = results.filter(function (leader) {
-        if (leader.game_name === 'TRVA') {
-          return leader;
-        }
-      });
-      return highScores;
-    }
-    function sortHighScores(highScores) {
-      var sortedScores = highScores.sort((score1, score2) => score1.score < score2.score);
+  //   function getHighScores(results) {
+  //     var highScores = results.filter(function (leader) {
+  //       if (leader.game_name === 'TRVA') {
+  //         return leader;
+  //       }
+  //     });
+  //     return highScores;
+  //   }
+  //   function sortHighScores(highScores) {
+  //     var sortedScores = highScores.sort((score1, score2) => score1.score < score2.score);
 
-      sortedScores.forEach(function (score, i) {
-        var $scoreRow = $('<tr>');
-        var $scoreRank = $('<td>').text(i + 1);
-        var $playerScore = $('<td>').text(score.score);
-        var $playerName = $('<td>').text(score.player_name);
-        $scoreRow.append($scoreRank, $playerName, $playerScore);
-        $('.scores').append($scoreRow);
-      });
-    }
-    function getScoresFailed() {
-      console.log('Could not GET leaderboard scores');
-    }
-  }
+  //     sortedScores.forEach(function (score, i) {
+  //       var $scoreRow = $('<tr>');
+  //       var $scoreRank = $('<td>').text(i + 1);
+  //       var $playerScore = $('<td>').text(score.score);
+  //       var $playerName = $('<td>').text(score.player_name);
+  //       $scoreRow.append($scoreRank, $playerName, $playerScore);
+  //       $('.scores').append($scoreRow);
+  //     });
+  //   }
+  //   function getScoresFailed() {
+  //     console.log('Could not GET leaderboard scores');
+  //   }
+  // }
 
   var counter;
   var currentRound = 0;
