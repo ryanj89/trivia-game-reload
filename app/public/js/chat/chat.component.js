@@ -1,19 +1,36 @@
-(function () {
-  'use strict';
+// (function () {
+//   'use strict';
 
-  angular.module('app')
-    .component('chat', {
-      templateUrl: 'js/chat/chat.template.html',
-      controller: controller,
-    });
+//   angular.module('app')
+//     .component('chat', {
+//       templateUrl: 'js/chat/chat.template.html',
+//       controller: controller,
+//     });
+  
+//   controller.$inject = ['mySocket']
+//   function controller(mySocket) {
+//     const vm = this;
+//     vm.messages = []
 
-  function controller() {
-    const vm = this;
+//     vm.createUser = createUser
 
-    vm.$onInit = onInit;
+//     mySocket.on('connect', () => {
+//       // mySocket.emit('new user', vm.user);
+//     })
+    
+//     mySocket.on('user joined', (data) => {
+//       console.log('user joined', data);
+     
+//       vm.messages.push({ message: `${data} has joined the room.` })
+//     })
 
-    function onInit() {
+//     mySocket.on('disconnect', () => {
+//       mySocket.emit('disconnect', vm.user)
+//     })
 
-    }
-  }
-})();
+
+//     function createUser() {
+
+//     }
+//   }
+// })();

@@ -1,13 +1,21 @@
-<div id="chat">
+<div id="chat" ng-show="$ctrl.user">
   <div class="well">
-    <ul>
-      <li>Welcome!</li>
+    <ul ng-repeat="message in $ctrl.messages">
+      <li>{{message.message}}</li>
     </ul>
   </div>
-  <form class="form-inline">
+  <form class="form-inline" ng-submit="$ctrl.newMessage($event)">
     <div class="form-group">
-      <input type="text" name="message" class="form-control">
+      <input type="text" name="message" class="form-control" ng-model="$ctrl.message">
     </div>
     <button id="send-message" type="submit" class="btn btn-primary">Send!</button>
   </form>
 </div>
+
+<form ng-model="$ctrl.user" ng-submit="$ctrl.createUser()" class="form">
+  <div class="form-group">
+    <label for="username">What's your name?</label>
+    <input id="username" type="text" name="username" class="form-control">
+  </div>
+  <button type="submit" class="btn btn-block btn-primary">GO!</button>
+</form>

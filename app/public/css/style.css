@@ -279,24 +279,23 @@ input[type="radio"]:checked + label {
   left: 0;
   border-radius: 100%;
   border: 6px solid transparent;
-  opacity: 0.75;
   box-sizing: border-box; }
 
 .inner:nth-child(1) {
   border-bottom-color: #FF6400;
-  animation: rotateright 5s ease infinite; }
+  animation: rotateleft 4s ease infinite; }
 
 .inner:nth-child(3) {
   border-top-color: #ecf0f1;
-  animation: rotateleft 5s ease infinite; }
+  animation: rotateleft 4s ease infinite; }
 
 .inner:nth-child(2) {
   border-right-color: #2278F0;
-  animation: rotateleft 5s ease infinite; }
+  animation: rotateright 4s ease infinite; }
 
 .inner:nth-child(4) {
   border-left-color: #DA39EF;
-  animation: rotateright 5s ease infinite; }
+  animation: rotateright 4s ease infinite; }
 
 @keyframes rotateleft {
   from {
@@ -311,7 +310,7 @@ input[type="radio"]:checked + label {
     transform: rotate(360deg); } }
 
 .animate-fade.ng-enter {
-  transition: all ease-in 1.5s; }
+  transition: all ease 1s; }
 
 .animate-fade.ng-leave {
   transition: all ease-out 0.2s; }
