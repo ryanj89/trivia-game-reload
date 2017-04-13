@@ -58,6 +58,9 @@ main {
   text-align: center;
   margin: 10px 0; }
 
+tr {
+  border-color: none; }
+
 /*==============================
   Category Lists
 ==============================*/
@@ -221,3 +224,81 @@ input[type="radio"]:checked + label {
 .legal {
   color: #ecf0f1;
   margin-right: 20px; }
+
+/*==============================
+  Animations
+==============================*/
+.spinner {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto; }
+
+.inner {
+  width: 50px;
+  height: 50px;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 100%;
+  border: 6px solid transparent;
+  opacity: 0.75;
+  box-sizing: border-box; }
+
+.inner:nth-child(1) {
+  /*   border-top-color: #FF6400; */
+  border-bottom-color: #FF6400;
+  animation: rotateright 5s ease infinite; }
+
+.inner:nth-child(3) {
+  border-top-color: #ecf0f1;
+  /*   border-bottom-color: #ecf0f1; */
+  animation: rotateleft 5s ease infinite; }
+
+.inner:nth-child(2) {
+  /*   border-left-color: #2278F0; */
+  border-right-color: #2278F0;
+  animation: rotateleft 5s ease infinite; }
+
+.inner:nth-child(4) {
+  border-left-color: #DA39EF;
+  /*   border-bottom-color: #DA39EF; */
+  animation: rotateright 5s ease infinite; }
+
+@keyframes rotateleft {
+  from {
+    transform: rotate(360deg); }
+  to {
+    transform: rotate(0deg); } }
+
+@keyframes rotateright {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
+
+/* The starting CSS styles for the enter animation */
+#leaderboard-list tr.ng-enter {
+  /* standard transition code */
+  transition: 0.5s linear all;
+  opacity: 0; }
+
+#leaderboard-list tr.ng-enter-stagger {
+  /* this will have a 100ms delay between each successive leave animation */
+  transition-delay: 0.2s;
+  /* As of 1.4.4, this must always be set: it signals ngAnimate
+    to not accidentally inherit a delay property from another CSS class */
+  transition-duration: 0s;
+  /* if you are using animations instead of transitions you should configure as follows:*/
+  animation-delay: 0.2s;
+  animation-duration: 0s; }
+
+#leaderboard-list tr.ng-enter.ng-enter-active {
+  /* standard transition styles */
+  opacity: 1; }

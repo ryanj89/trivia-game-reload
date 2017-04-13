@@ -7,10 +7,10 @@
         <th>Name</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody id="leaderboard-list">
       <tr ng-repeat="score in $ctrl.scores">
         <td>{{score.score}}</td>
-        <td>{{score.player_name}}</td>
+        <td>{{score.player_name}} &mdash; <span am-time-ago="score.date"></span></td>
       </tr>
     </tbody>
   </table>
