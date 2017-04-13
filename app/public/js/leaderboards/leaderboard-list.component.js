@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('app')
-    .component('exampleComponent', {
+    .component('leaderboardList', {
       templateUrl: 'js/leaderboards/leaderboard-list.template.html',
       controller: controller,
     });

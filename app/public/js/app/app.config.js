@@ -8,10 +8,11 @@
     $locationProvider.html5Mode(true);
 
     $stateProvider
-      .state({
-        name: 'home',
-        url: '/',
-        component: 'exampleComponent',
-      });
+      // .state({
+      //   name: 'list-scores',
+      //   url: '/',
+      //   abstract: true,
+      //   component: 'leaderboardList',
+      // });
   }
 })();

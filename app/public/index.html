@@ -46,7 +46,7 @@
             <button id="answer-btn" class="btn btn-primary btn-block">Submit Answer</button>
           </article>
           <!-- ./trivia-card -->
-          
+
           <article class="final-score">
             <h1>Final Score: <span class="final"></span></h1>
             <hr>
@@ -85,79 +85,27 @@
           </ul>
         </section>
 
-        <form id="filter-options">
-          <!-- Number of Questions -->
-          <label for="num-questions">Number of Questions:</label>
-          <select class="num-questions" name="num-questions">
-                     <option value="1">1</option>
-                     <option value="3">3</option>
-                     <option value="5">5</option>
-                     <option value="10" selected>10</option>
-                  </select>
-          <!-- Filter Category -->
-          <label for="category-filter">Choose Category:</label>
-          <select class="category-filter" name="categories">
-                     <option value="any">Any Category</option>
-                     <option value="9">General Knowledge</option>
-                     <option value="10">Entertainment: Books</option>
-                     <option value="11">Entertainment: Film</option>
-                     <option value="12">Entertainment: Music</option>
-                     <option value="13">Entertainment: Musicals &amp; Theatres</option>
-                     <option value="14">Entertainment: Television</option>
-                     <option value="15">Entertainment: Video Games</option>
-                     <option value="16">Entertainment: Board Games</option>
-                     <option value="17">Science &amp; Nature</option>
-                     <option value="18">Science: Computers</option>
-                     <option value="19">Science: Mathematics</option>
-                     <option value="20">Mythology</option>
-                     <option value="21">Sports</option>
-                     <option value="22">Geography</option>
-                     <option value="23">History</option>
-                     <option value="24">Politics</option>
-                     <option value="25">Art</option>
-                     <option value="26">Celebrities</option>
-                     <option value="27">Animals</option>
-                     <option value="28">Vehicles</option>
-                     <option value="29">Entertainment: Comics</option>
-                     <option value="30">Science: Gadgets</option>
-                     <option value="31">Entertainment: Japanese Anime &amp; Manga</option>
-                     <option value="32">Entertainment: Cartoon &amp; Animations</option>
-                  </select>
-          <!-- Filter Difficulty -->
-          <label for="difficulty">Choose Difficulty:</label>
-          <select class="difficulty-filter" name="difficulty">
-                     <option value="any">Any Difficulty</option>
-                     <option value="easy">Easy</option>
-                     <option value="medium">Medium</option>
-                     <option value="hard">Hard</option>
-                  </select>
-          <!-- Filter Question Type -->
-          <label for="type-filter">Choose Type:</label>
-          <select class="type-filter" name="type">
-                     <option value="any">Any Type</option>
-                     <option value="multiple">Multiple Choice</option>
-                     <option value="boolean">True/False</option>
-                  </select>
-          <button id="get-questions" class="btn btn-success btn-block" type="button" name="new-game">START GAME</button>
-        </form>
+        <trivia-options-form></trivia-options-form>
+
       </aside>
       <!-- ./side-bar -->
 
       <!-- High Scores -->
       <aside class="side-bar col-xs-6 col-sm-3 col-md-3 col-lg-3">
-        
-        <ui-view></ui-view>
-        
+
+        <leaderboard-list></leaderboard-list>
+
       </aside>
     </div>
   </div>
+
   <footer class="main-footer">
     <h6 class="legal">Copyright (c) 2017 Ryan Johnson All Rights Reserved.</h6>
   </footer>
 
-  
 
 
+  <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" charset="utf-8"></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular.min.js'></script>
@@ -167,6 +115,7 @@
   <script src="js/app/app.module.js" charset="utf-8"></script>
   <script src="js/app/app.config.js" charset="utf-8"></script>
   <script src="js/leaderboards/leaderboard-list.component.js" charset="utf-8"></script>
+  <script src="js/trivia/trivia-options-form.component.js" charset="utf-8"></script>
   <script src="js/services/leaderboard.service.js" charset="utf-8"></script>
   <script src="js/main.js" charset="utf-8"></script>
 </body>
