@@ -64,6 +64,48 @@ main {
 
 
 /*==============================
+  Chat room
+==============================*/
+#sidebar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  li {
+    width: 100%;
+    text-align: center;
+  }
+  li.active {
+    background: #465765;
+  }
+}
+#chat {
+  .well {
+    height: 420px;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  form {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    .form-group {
+      width: 75%;
+    }
+    input {
+      width: 100%;
+    }
+  }
+  color: #465765;
+  margin-top: 8px;
+}
+
+#send-message {
+    margin: 0;
+    width: 75px;
+  }
+/*==============================
   Player Score/High Scores
 ==============================*/
 .player-score,
@@ -72,19 +114,12 @@ main {
   text-align: center;
 }
 
-.high-scores {
-  h2 {
-    margin: 20px 0;
-  }
-}
-
 .scores {
   th {
     text-align: center;
     margin: 10px 0;
   }
 }
-
 
 tr {
   border-color: none;
@@ -327,23 +362,19 @@ input[type="radio"]:checked + label {
 }
 
 .inner:nth-child(1) {
-/*   border-top-color: #FF6400; */
   border-bottom-color: #FF6400;
   animation: rotateright 5s ease infinite;
 }
 .inner:nth-child(3) {
   border-top-color: #ecf0f1;
-/*   border-bottom-color: #ecf0f1; */
   animation: rotateleft 5s ease infinite;
 }
 .inner:nth-child(2) {
-/*   border-left-color: #2278F0; */
   border-right-color: #2278F0;
   animation: rotateleft 5s ease infinite;
 }
 .inner:nth-child(4) {
   border-left-color: #DA39EF;
-/*   border-bottom-color: #DA39EF; */
   animation: rotateright 5s ease infinite;
 }
 @keyframes rotateleft {
@@ -355,35 +386,19 @@ input[type="radio"]:checked + label {
   to{transform:rotate(360deg)}
 }
 
-/* The starting CSS styles for the enter animation */
-// .leaderboard-list.ng-enter {
-//   transition:0.5s linear all;
-//   opacity:0;
-// }
-
-// /* The finishing CSS styles for the enter animation */
-// .leaderboard-list.ng-enter.ng-enter-active {
-//   opacity:1;
-// }
-
-#leaderboard-list tr.ng-enter {
-  /* standard transition code */
-  transition: 0.5s linear all;
-  opacity:0;
+.animate-fade.ng-enter {
+  transition: all ease-in 1.5s;
 }
-#leaderboard-list tr.ng-enter-stagger {
-  /* this will have a 100ms delay between each successive leave animation */
-  transition-delay: 0.2s;
-
-  /* As of 1.4.4, this must always be set: it signals ngAnimate
-    to not accidentally inherit a delay property from another CSS class */
-  transition-duration: 0s;
-
-  /* if you are using animations instead of transitions you should configure as follows:*/
-    animation-delay: 0.2s;
-    animation-duration: 0s; 
+.animate-fade.ng-leave {
+  transition: all ease-out 0.2s;
 }
-#leaderboard-list tr.ng-enter.ng-enter-active {
-  /* standard transition styles */
-  opacity:1;
+
+.animate-fade.ng-leave,
+.animate-fade.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+
+.animate-fade.ng-enter,
+.animate-fade.ng-leave.ng-leave-active {
+  opacity: 0;
 }

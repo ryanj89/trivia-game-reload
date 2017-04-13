@@ -1,0 +1,11 @@
+<ul id="sidebar-nav" class="nav nav-tabs">
+  <li role="presentation" ng-class="{ active: $ctrl.isSet(1) }"><a href ng-click="$ctrl.setTab(1)">Chat</a></li>
+  <li role="presentation" ng-class="{ active: $ctrl.isSet(2) }"><a href ng-click="$ctrl.setTab(2)">Leaderboards</a></li>
+</ul>
+
+<div class="animate-fade" ng-if="$ctrl.isSet(1)">
+  <chat></chat>
+</div>
+<div class="animate-fade" ng-if="$ctrl.isSet(2)">
+  <leaderboard-list></leaderboard-list>
+</div>
