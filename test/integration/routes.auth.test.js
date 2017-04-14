@@ -43,21 +43,26 @@ describe('routes : auth', () => {
         done();
       });
     });
-    xit('should not register a new user if user exists', (done) => {
+
+    it('should throw an error if a user is logged in', (done) => {
+      passportStub.login({
+        username: 'lbendell',
+        password: 'ruby123'
+      })
       chai.request(server)
       .post('/auth/register')
       .send({
-        username: 'ryanj89',
-        password: 'murphy123'
+        username: 'newuser',
+        password: 'newuser123'
       })
       .end((err, res) => {
         should.exist(err);
         res.redirects.length.should.eql(0);
-        res.status.should.eql(500);
+        res.status.should.eql(401);
         res.type.should.eql('application/json');
-        res.body.status.should.eql('error');
+        res.body.status.should.eql('Already logged in');
         done();
-      })
+      });
     });
   });
 
@@ -95,6 +100,29 @@ describe('routes : auth', () => {
         done();
       });
     });
+
+    it('should throw an error if a user is logged in', (done) => {
+      passportStub.login({
+        username: 'lbendell',
+        password: 'ruby123'
+      })
+      chai.request(server)
+      .post('/auth/register')
+      .send({
+        username: 'newuser',
+        password: 'newuser123'
+      })
+      .end((err, res) => {
+        should.exist(err);
+        res.redirects.length.should.eql(0);
+        res.status.should.eql(401);
+        res.type.should.eql('application/json');
+        res.body.status.should.eql('Already logged in');
+        done();
+      });
+    });    
+
+
   });
 
   describe('GET /logout', () => {
@@ -208,6 +236,6 @@ describe('routes : auth', () => {
       });
     });
 
-    
+
   });
 });

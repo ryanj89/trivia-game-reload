@@ -7,17 +7,26 @@ function comparePass(userPass, dbPass) {
 }
 
 function createUser(req) {
-  const salt = bcrypt.genSaltSync();
-  const hash = bcrypt.hashSync(req.body.password, salt);
-  return knex('users')
-    .insert({
-      username: req.body.username,
-      password: hash
+  return handleErrors(req)
+    .then(() => {
+      const salt = bcrypt.genSaltSync();
+      const hash = bcrypt.hashSync(req.body.password, salt);
+      return knex('users')
+        .insert({
+          username: req.body.username,
+          password: hash
+        })
+        .returning('*');
     })
-    .returning('*');
+    .catch((err) => { 
+      res.status(400).json({ status: err.message }) 
+    });
 }
 
-// 401: UNAUTHORIZED
+//
+// Authorization
+//
+
 function loginRequired(req, res, next) {
   if (!req.user) return res.status(401).json({ status: 'Please log in' });
   return next();
@@ -35,9 +44,28 @@ function adminRequired(req, res, next) {
     })
 }
 
+function loginRedirect(req, res, next) {
+  if (req.user) return res.status(401).json({ status: 'Already logged in' });
+  return next();
+}
+
+function handleErrors(req) {
+  return new Promise((resolve, reject) => {
+    if (req.body.username.length < 6) {
+      reject({ message: 'Username must be longer than six characters.' });
+    } else if (req.body.password.length < 6) {
+      reject({ message: 'Password must be longer than six characters.' });
+    } else {
+      resolve();
+    }
+  })
+}
+
 module.exports = {
   comparePass,
   createUser,
   loginRequired,
-  adminRequired
+  adminRequired,
+  loginRedirect,
+  handleErrors
 }

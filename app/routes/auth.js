@@ -5,7 +5,7 @@ const routeHelpers = require('./_helpers');
 const authHelpers = require('../auth/_helpers');
 const passport = require('../auth/local');
 
-router.post('/register', (req, res, next) => {
+router.post('/register', authHelpers.loginRedirect, (req, res, next) => {
   return authHelpers.createUser(req, res)
     .then(response => {
       passport.authenticate('local', (err, user, info) => {
@@ -15,7 +15,7 @@ router.post('/register', (req, res, next) => {
     .catch(err => { routeHelpers.handleResponse(res, 500, 'error'); });
 });
 
-router.post('/login', (req, res, next) => {
+router.post('/login', authHelpers.loginRedirect, (req, res, next) => {
   passport.authenticate('local', (err, user, info) => {
     if (err) { routeHelpers.handleResponse(res, 500, 'error'); }
     if (!user) { routeHelpers.handleResponse(res, 404, 'User not found'); }
