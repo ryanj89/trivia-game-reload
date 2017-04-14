@@ -7,18 +7,20 @@ const passport = require('../auth/local');
 
 router.post('/register', authHelpers.loginRedirect, (req, res, next) => {
   return authHelpers.createUser(req, res)
-    .then(response => {
+    .then((response) => {
       passport.authenticate('local', (err, user, info) => {
         if (user) { routeHelpers.handleResponse(res, 200, 'success'); }
       })(req, res, next);
     })
-    .catch(err => { routeHelpers.handleResponse(res, 500, 'error'); });
+    .catch(err => { 
+      routeHelpers.handleResponse(res, 500, 'error'); 
+    });
 });
 
 router.post('/login', authHelpers.loginRedirect, (req, res, next) => {
   passport.authenticate('local', (err, user, info) => {
     if (err) { routeHelpers.handleResponse(res, 500, 'error'); }
-    if (!user) { routeHelpers.handleResponse(res, 404, 'User not found'); }
+    if (!user) { routeHelpers.handleResponse(res, 404, 'Incorrect username and/or password'); }
     if (user) {
       req.logIn(user, (err) => {
         if (err) { routeHelpers.handleResponse(res, 500, 'error'); }
