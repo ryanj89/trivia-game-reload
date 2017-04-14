@@ -1,10 +1,26 @@
-exports.seed = (knex) => {
-  return knex('users').del().then(() => {
-    return knex('users').insert([
-      {
-        name: 'Ryan Johnson',
-        email: 'ryanj89@gmail.com',
-      },
-    ]);
-  });
+const bcrypt = require('bcryptjs');
+
+exports.seed = (knex, Promise) => {
+  return knex('users').del()
+    .then(() => {
+      const salt = bcrypt.genSaltSync();
+      const hash = bcrypt.hashSync('ruby123', salt);
+      return Promise.join(
+        knex('users').insert({
+          username: 'lbendell',
+          password: hash
+        })
+      )
+    })
+    .then(() => {
+      const salt = bcrypt.genSaltSync();
+      const hash = bcrypt.hashSync('murphy123', salt);
+      return Promise.join(
+        knex('users').insert({
+          username: 'ryanj89',
+          password: hash,
+          admin: true
+        })
+      );
+    })
 };
