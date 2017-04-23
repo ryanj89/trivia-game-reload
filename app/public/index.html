@@ -5,8 +5,10 @@
   <base href="/">
   <meta charset="utf-8">
   <title>Trivia: the GAME!</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css'/>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'/>
   <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -29,32 +31,18 @@
   <div class="container-fluid">
     <div class="row">
 
-      <main class="container col-xs-12 col-sm-6 col-sm-push-3 col-md-6 col-lg-6">
+        <!--<login></login>-->
+
         <section class="question-row row">
+
+        <ui-view></ui-view>
+
           <!-- Timer -->
           <div class="timer-area">
             <span id="timer" class="text-center"></span>
           </div>
-          <!-- TRIVIA QUESTIONS -->
-          <article class="trivia-card">
-            <div class="flex-container">
-              <span class="trivia-category"></span>
-              <span class="trivia-difficulty"></span>
-            </div>
-            <hr>
-            <p class="trivia-question"></p>
 
-            <hr>
-
-            <form id="player-answer">
-
-            </form>
-
-            <button id="answer-btn" class="btn btn-primary btn-block">Submit Answer</button>
-          </article>
-          <!-- ./trivia-card -->
-
-          <article class="final-score">
+          <!--<article class="final-score">
             <h1>Final Score: <span class="final"></span></h1>
             <hr>
             <p>You answered <span class="correct"></span> out of <span class="total-questions"></span> questions correctly!</p>
@@ -65,21 +53,19 @@
               <button id="leaderboard" class="btn btn-primary" type="button" name="leaderboard">Submit</button>
               <button id="play-again" class="btn btn-success" type="button" name="play-again">Play Again?</button>
             </form>
-          </article>
+          </article>-->
           <!-- ./final-score -->
 
-          <article class="alert alert-success alert-correct">
+          <!--<article class="alert alert-success alert-correct">
             <h2></h2>
           </article>
           <article class="alert alert-danger alert-wrong">
             <h2></h2>
           </article>
 
-        </section>
-      </main>
-      <!-- ./main -->
+        </section>-->
 
-      <aside class="side-bar col-xs-6 col-sm-3 col-sm-pull-6 col-md-3 col-lg-3">
+      <!--<aside ng-class="{ slideInLeft: $ctrl.optionsSelected }" class="animated side-bar col-xs-6 col-sm-3 col-sm-pull-6 col-md-3 col-lg-3">
         <section class="player-score">
           <h2>Score: <span id="score">0</span></h2>
         </section>
@@ -92,23 +78,22 @@
           </ul>
         </section>
 
-        <trivia-options-form></trivia-options-form>
 
-      </aside>
+      </aside>-->
       <!-- ./side-bar -->
 
       <!-- High Scores -->
-      <aside class="side-bar col-xs-6 col-sm-3 col-md-3 col-lg-3">
+      <!--<aside class="side-bar col-xs-6 col-sm-3 col-md-3 col-lg-3">
 
         <side-bar></side-bar>
 
-      </aside>
+      </aside>-->
     </div>
   </div>
 
-  <footer class="main-footer">
+  <!--<footer class="main-footer">
     <h6 class="legal">Copyright (c) 2017 Ryan Johnson All Rights Reserved.</h6>
-  </footer>
+  </footer>-->
 
 
 
@@ -124,11 +109,17 @@
   <script src="socket.io-client/socket.io.js" charset="utf-8"></script>
   <script src="js/app/app.module.js" charset="utf-8"></script>
   <script src="js/app/app.config.js" charset="utf-8"></script>
+  <!--<script src="js/login/login.component.js" charset="utf-8"></script>-->
   <script src="js/leaderboards/leaderboard-list.component.js" charset="utf-8"></script>
-  <script src="js/chat/chat.component.js" charset="utf-8"></script>
+  <!--<script src="js/chat/chat.component.js" charset="utf-8"></script>-->
+  <script src="js/trivia/trivia-game.component.js" charset="utf-8"></script>
   <script src="js/trivia/trivia-options-form.component.js" charset="utf-8"></script>
+  <script src="js/trivia/trivia-question-list.component.js" charset="utf-8"></script>
+  <script src="js/trivia/trivia-question.component.js" charset="utf-8"></script>
+  <script src="js/trivia/trivia-score.component.js" charset="utf-8"></script>
   <script src="js/sidebar/sidebar.component.js" charset="utf-8"></script>
   <script src="js/services/leaderboard.service.js" charset="utf-8"></script>
+  <script src="js/services/trivia.service.js" charset="utf-8"></script>
   <script src="js/services/socket.factory.js" charset="utf-8"></script>
   <script src="js/main.js" charset="utf-8"></script>
 </body>

@@ -1,36 +1,36 @@
-<form name="trivia-options" id="filter-options" ng-submit="$ctrl.getQuestions()">
-  <!-- Number of Questions -->
-  <div class="form-group">
-    <label for="num-questions">Number of Questions:</label>
-    <select name="num-questions" id="num-questions" class="num-questions form-control" 
-            ng-options="number.name for number in $ctrl.numbers track by number.id"
-            ng-model="$ctrl.selectedNumber">
+<section class="animated trivia-setup trivia-card" ng-class="{ fadeInUp: !$ctrl.optionsSelected, bounceOutUp: $ctrl.optionsSelected }" ng-show="!$ctrl.optionsSelected">
+  <h3>Welcome!</h3>
+  <h4>Select your options to begin:</h4>
+  <form name="$ctrl.optionsForm" id="filter-options" ng-submit="$ctrl.getQuestions()">
+    <!-- Number of Questions -->
+    <div class="form-group">
+      <label for="num-questions">Number of Questions:</label>
+      <select name="num-questions" id="num-questions" class="num-questions form-control" ng-options="number.name for number in $ctrl.numbers track by number.id"
+        ng-model="$ctrl.selectedNumber">
     </select>
-  </div>
-  <!-- Filter Category -->
-  <div class="form-group">
-    <label for="category-filter">Choose Category:</label>
-    <select name="categories" id="category-filter" class="category-filter form-control" 
-            ng-options="category.name for category in $ctrl.categories track by category.id"
-            ng-model="$ctrl.selectedCategory">
+    </div>
+    <!-- Filter Category -->
+    <div class="form-group">
+      <label for="category-filter">Choose Category:</label>
+      <select name="categories" id="category-filter" class="category-filter form-control" ng-options="category.name for category in $ctrl.categories track by category.id"
+        ng-model="$ctrl.selectedCategory">
     </select>
-  </div>
-  <!-- Filter Difficulty -->
-  <div class="form-group">
-    <label for="difficulty">Choose Difficulty:</label>
-    <select name="difficulty" id="difficulty" class="difficulty-filter form-control"
-            ng-options="difficulty.name for difficulty in $ctrl.difficulties track by difficulty.id"
-            ng-model="$ctrl.selectedDifficulty">
+    </div>
+    <!-- Filter Difficulty -->
+    <div class="form-group">
+      <label for="difficulty">Choose Difficulty:</label>
+      <select name="difficulty" id="difficulty" class="difficulty-filter form-control" ng-options="difficulty.name for difficulty in $ctrl.difficulties track by difficulty.id"
+        ng-model="$ctrl.selectedDifficulty">
     </select>
-  </div>
-  <!-- Filter Question Type -->
-  <div class="form-group">
-    <label for="type-filter">Choose Type:</label>
-    <select name="type-filter" id="type-filter" class="type-filter form-control"
-            ng-options="type.name for type in $ctrl.types track by type.id"
-            ng-model="$ctrl.selectedType">
+    </div>
+    <!-- Filter Question Type -->
+    <div class="form-group">
+      <label for="type-filter">Choose Type:</label>
+      <select name="type-filter" id="type-filter" class="type-filter form-control" ng-options="type.name for type in $ctrl.types track by type.id"
+        ng-model="$ctrl.selectedType">
     </select>
-  </div>
-  
-  <button id="get-questions" class="btn btn-success btn-block form-control" type="button" name="new-game">START GAME</button>
-</form>
+    </div>
+
+    <button id="get-questions" class="btn btn-success btn-block form-control" type="submit" name="new-game">START GAME</button>
+  </form>
+</section>

@@ -1,0 +1,14 @@
+<article class="animated final-score" ng-class="{ fadeInDown: $ctrl.gameOver }">
+  <h1>Final Score: <span class="final">{{$ctrl.score}}</span></h1>
+  <hr>
+  <h4>You answered <span class="correct">{{$ctrl.correct}}</span> out of <span class="total-questions">{{$ctrl.questions.length}}</span> questions correctly!</h4>
+  <p><i>Think you rank with the best? Show off your score!</i></p>
+  <form class="$ctrl.highScoreform" ng-submit="$ctrl.submitScore()">
+    <div class="form-group">
+      <label for="userName">Name: </label>
+      <input id="userName" ng-model="$ctrl.userName" type="text" name="user_name" class="form-control">
+      <button id="leaderboard" class="btn btn-primary btn-block" type="submit" name="leaderboard">Submit</button>
+      <button id="play-again" class="btn btn-success btn-block" type="button" name="play-again">Play Again?</button>
+    </div>
+  </form>
+</article>

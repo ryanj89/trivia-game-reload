@@ -9,10 +9,14 @@
 
     $stateProvider
       // .state({
-      //   name: 'list-scores',
+      //   name: 'home',
       //   url: '/',
-      //   abstract: true,
-      //   component: 'leaderboardList',
-      // });
+      //   component: 'triviaOptionsForm',
+      // })
+      .state({
+        name: 'game',
+        url: '/game',
+        component: 'triviaGame'
+      })
   }
 })();

@@ -6,14 +6,39 @@
         .component ('triviaOptionsForm', {
           templateUrl: 'js/trivia/trivia-options-form.template.html',
           controller: controller,
-          bindings: {}
+          bindings: {
+            onSubmit: '&'
+          }
         });
 
-    function controller() {
+    controller.$inject = ['triviaService'];
+    function controller(triviaService) {
         const API = 'https://opentdb.com/api.php?amount=';
         const vm = this;
         
-        // Form options
+        
+
+        vm.$onInit = onInit;
+        vm.getQuestions = getQuestions;
+
+        function getQuestions() {
+          vm.optionsSelected = true;
+
+          vm.options = {
+            number: vm.selectedNumber.id,
+            category: vm.selectedCategory.id,
+            difficulty: vm.selectedDifficulty.id,
+            type: vm.selectedType.id
+          }
+          triviaService.getQuestions(vm.options)
+          .then(response => {
+            vm.onSubmit({ questions: response.results });
+          })
+                  
+        }
+
+        function onInit() {
+          // Form options
         vm.numbers = [{id: 1, name: 'One'}, {id: 3, name: 'Three'}, {id: 5, name: 'Five'}, {id: 10, name: 'Ten'}, ];
         vm.selectedNumber = vm.numbers[3];
         vm.categories = [
@@ -57,11 +82,6 @@
           { id:'boolean', name: 'True/False' },
         ]
         vm.selectedType = vm.types[0];
-
-        vm.$onInit = onInit;
-
-        function onInit() {
-
         }
     }
 

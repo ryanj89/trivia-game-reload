@@ -54,11 +54,13 @@ app.use(express.static(path.join(__dirname, '/../', 'node_modules')));
 // Routes
 app.use('/auth', require('./routes/auth'));
 app.use('/', require('./routes/user'));
+app.use('/leaderboards', require('./routes/leaderboards'));
 
 // Wildcard route
 app.use('*', (req, res) => {
   res.sendFile('index.html', { root: path.join(__dirname, 'public') });
 });
+
 
 // 404 Error Handler
 app.use((req, res, next) => {

@@ -1,0 +1,24 @@
+<article class="animated trivia-card" ng-class="{ fadeInDown: $ctrl.newRound, tada: $ctrl.correct, shake: !$ctrl.correct, fadeOutDown: $ctrl.roundOver }">
+  <div class="flex-container">
+    <span class="trivia-category">{{$ctrl.question.category}}</span>
+    <span class="trivia-difficulty">{{$ctrl.question.difficulty}}</span>
+  </div>
+  <hr>
+  <p class="trivia-question">{{$ctrl.question.question}}</p>
+
+  <hr>
+
+  <form name="$ctrl.playerAnswer" id="player-answer" ng-submit="$ctrl.submitAnswer()">
+    <div class="radio" ng-repeat="answer in $ctrl.question.answers">
+      <label>
+        <input type="radio" name="triviaAnswers" value="{{answer}}" ng-model="$ctrl.playerAnswer.answer">
+        {{answer}}
+      </label>
+    </div>
+  <div class="form-group">
+    <button id="answer-btn" type="submit" class="btn btn-primary btn-block form-control">Submit Answer</button>
+
+  </div>
+  </form>
+  Answer: {{$ctrl.question.correct_answer}}
+</article>

@@ -1,0 +1,19 @@
+<aside class="animated slideInLeft side-bar col-xs-6 col-sm-3 col-sm-pull-6 col-md-3 col-lg-3">
+  <section class="player-score">
+    <h2>Score: <span id="score">{{$ctrl.score}}</span></h2>
+  </section>
+
+  <hr>
+
+  <section>
+    <h3 class="trivia-rounds">Question <span class="current-round">1</span> of <span class="total-questions"></span></h3>
+    <ul class="question-list" ng-repeat="question in $ctrl.questions">
+      <li>
+        <span class="trivia-status glyphicon glyphicon-ok-sign animated fadeIn" aria-hidden="true" ng-show="question.correct"></span> 
+        <span class="trivia-status glyphicon glyphicon-remove-sign animated fadeIn" aria-hidden="true" ng-show="question.wrong"></span> 
+          {{question.category}}</li>
+    </ul>
+  </section>
+
+
+</aside>

@@ -1,0 +1,9 @@
+<main class="container col-xs-12 col-sm-6 col-sm-push-3 col-md-6 col-lg-6">
+
+  <trivia-options-form on-submit="$ctrl.setupGame(questions)"></trivia-options-form>
+  <trivia-question question="$ctrl.currentQuestion" ng-show="$ctrl.newRound" on-answer="$ctrl.nextRound(points, correct)"></trivia-question>
+  <trivia-score score="$ctrl.playerScore" correct="$ctrl.numberCorrect" questions="$ctrl.questions" ng-show="$ctrl.gameOver"></trivia-score>
+  
+</main>
+
+<trivia-question-list score="$ctrl.playerScore" questions="$ctrl.questions" ng-show="$ctrl.questions"></trivia-question-list>

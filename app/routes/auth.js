@@ -4,6 +4,7 @@ const router = express.Router();
 const routeHelpers = require('./_helpers');
 const authHelpers = require('../auth/_helpers');
 const passport = require('../auth/local');
+// const passport = require('../auth/google');
 
 router.post('/register', authHelpers.loginRedirect, (req, res, next) => {
   return authHelpers.createUser(req, res)
@@ -34,5 +35,14 @@ router.get('/logout', authHelpers.loginRequired, (req, res, next) => {
   req.logOut();
   routeHelpers.handleResponse(res, 200, 'success');
 });
+
+router.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
+
+router.get('/google/callback', 
+  passport.authenticate('google', {
+    failureRedirect: '/',
+    successRedirect: '/profile'
+  }));
+
 
 module.exports = router;

@@ -8,7 +8,7 @@
   box-sizing: border-box; }
 
 body {
-  font-family: 'Avenir Next', sans-serif;
+  font-family: 'Roboto', sans-serif;
   background-color: #27ae60; }
 
 h1 {
@@ -25,7 +25,7 @@ main {
 *******************************/
 .main-header {
   height: 120px;
-  background-color: #465765;
+  background-color: #2f3241;
   align-items: center;
   box-shadow: 0 1px 22px 4px #465765; }
 
@@ -163,8 +163,7 @@ button {
   justify-content: space-between; }
 
 .trivia-card {
-  display: none;
-  margin: 20px auto;
+  margin: 50px auto;
   max-width: 540px;
   background-color: #ecf0f1;
   border: 1px solid #465765;
@@ -181,12 +180,10 @@ button {
   font-size: 20px; }
 
 .trivia-category {
-  display: none;
   margin-bottom: 10px;
   font-style: italic; }
 
 .trivia-question {
-  display: none;
   margin-bottom: 15px; }
 
 .trivia-answers {
@@ -225,7 +222,6 @@ input[type="radio"]:checked + label {
   Final Score
 ==============================*/
 .final-score {
-  display: none;
   margin: 20px auto;
   width: 420px;
   background-color: #ecf0f1;
@@ -245,9 +241,13 @@ input[type="radio"]:checked + label {
   Footer
 ==============================*/
 .main-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   display: flex;
   height: 120px;
-  background-color: #465765;
+  background-color: #2f3241;
   box-shadow: 0 1px 22px 4px #465765;
   align-items: center;
   justify-content: flex-end; }
@@ -308,17 +308,3 @@ input[type="radio"]:checked + label {
     transform: rotate(0deg); }
   to {
     transform: rotate(360deg); } }
-
-.animate-fade.ng-enter {
-  transition: all ease 1s; }
-
-.animate-fade.ng-leave {
-  transition: all ease-out 0.2s; }
-
-.animate-fade.ng-leave,
-.animate-fade.ng-enter.ng-enter-active {
-  opacity: 1; }
-
-.animate-fade.ng-enter,
-.animate-fade.ng-leave.ng-leave-active {
-  opacity: 0; }

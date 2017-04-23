@@ -2,7 +2,7 @@
           Colors
 ==============================*/
 $main-bg-color: rgb(39, 174, 96);
-$header-bg-color: #465765;
+$header-bg-color: #2f3241;
 $sidebar-bg-color: #303b44;
 $trivia-bg-color: #ecf0f1;
 $header-text-color: #FF6400;
@@ -17,7 +17,7 @@ $sidebar-text-color: #ecf0f1;
 }
 
 body {
-  font-family: 'Avenir Next', sans-serif;
+  font-family: 'Roboto', sans-serif;
   background-color: $main-bg-color;
 }
 
@@ -213,8 +213,8 @@ button {
   justify-content: space-between;
 }
 .trivia-card {
-  display: none;
-  margin: 20px auto;
+  // display: none;
+  margin: 50px auto;
   max-width: 540px;
   background-color: $trivia-bg-color;
   border: 1px solid #465765;
@@ -235,13 +235,13 @@ button {
 }
 
 .trivia-category {
-  display: none;
+  // display: none;
   margin-bottom: 10px;
   font-style: italic;
 }
 
 .trivia-question {
-  display: none;
+  // display: none;
   margin-bottom: 15px;
 }
 
@@ -291,7 +291,7 @@ input[type="radio"]:checked + label {
   Final Score
 ==============================*/
 .final-score {
-  display: none;
+  // display: none;
   margin: 20px auto;
   width: 420px;
   background-color: $trivia-bg-color;
@@ -319,6 +319,10 @@ input[type="radio"]:checked + label {
   Footer
 ==============================*/
 .main-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   display: flex;
   height: 120px;
   background-color: $header-bg-color;
@@ -386,19 +390,19 @@ input[type="radio"]:checked + label {
   to{transform:rotate(360deg)}
 }
 
-.animate-fade.ng-enter {
-  transition: all ease 1s;
-}
-.animate-fade.ng-leave {
-  transition: all ease-out 0.2s;
-}
+// .animate-fade.ng-enter {
+//   transition: all ease 1s;
+// }
+// .animate-fade.ng-leave {
+//   transition: all ease-out 0.2s;
+// }
 
-.animate-fade.ng-leave,
-.animate-fade.ng-enter.ng-enter-active {
-  opacity: 1;
-}
+// .animate-fade.ng-leave,
+// .animate-fade.ng-enter.ng-enter-active {
+//   opacity: 1;
+// }
 
-.animate-fade.ng-enter,
-.animate-fade.ng-leave.ng-leave-active {
-  opacity: 0;
-}
+// .animate-fade.ng-enter,
+// .animate-fade.ng-leave.ng-leave-active {
+//   opacity: 0;
+// }
